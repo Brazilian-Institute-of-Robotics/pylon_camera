@@ -66,14 +66,14 @@ bool ros2GenAPI(const std::string& ros_enc, std::string& gen_api_enc)
     {
         gen_api_enc = "BayerRG8";
     }
-    /*
-    else if ( ros_enc == sensor_msgs::image_encodings::YUV422 )
+        else if ( ros_enc == sensor_msgs::image_encodings::YUV422 )
     {
         //  This is the UYVY version of YUV422 codec http://www.fourcc.org/yuv.php#UYVY
         //  with an 8-bit depth
-        gen_api_enc = "YCbCr422_8";
+        
+        gen_api_enc = "YUV422Packed";
     }
-    */
+    
     else
     {
         /* No gen-api pendant existant for following ROS-encodings:
@@ -121,12 +121,10 @@ bool genAPI2Ros(const std::string& gen_api_enc, std::string& ros_enc)
     {
         ros_enc = sensor_msgs::image_encodings::BAYER_RGGB8;
     }
-    /*
-    else if ( gen_api_enc == "YCbCr422_8" )
+    else if ( gen_api_enc == "YUV422Packed" )
     {
         ros_enc = sensor_msgs::image_encodings::YUV422;
     }
-    */
     else
     {
         /* Unsupported are:
