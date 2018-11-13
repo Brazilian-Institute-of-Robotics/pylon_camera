@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(pylon_camera)
-
 add_definitions("-std=gnu++11")
 #set(CMAKE_CXX_FLAGS "-g -Wall -Wno-unknown-pragmas -Wno-delete-non-virtual-dtor -Wno-unused-variable")
 set(
@@ -63,7 +62,9 @@ roslint_cpp(
     include/${PROJECT_NAME}/internal/impl/${PROJECT_NAME}_usb.hpp
 )
 
-roslaunch_add_file_check(launch)
+if(CATKIN_ENABLE_TESTING)
+    roslaunch_add_file_check(launch)
+endif()
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include
