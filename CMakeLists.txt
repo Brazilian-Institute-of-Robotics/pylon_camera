@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(pylon_camera)
 
+if(CATKIN_ENABLE_TESTING)
+    set(CATKIN_ENABLE_TESTING ON)
+endif()
+
 add_definitions("-std=gnu++11")
 #set(CMAKE_CXX_FLAGS "-g -Wall -Wno-unknown-pragmas -Wno-delete-non-virtual-dtor -Wno-unused-variable")
 set(
